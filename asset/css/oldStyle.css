@@ -1,0 +1,154 @@
+:root {
+    --jaune: #eec201;
+    --marron: #b0401b;
+    --blanc: #ffffff;
+    --noir: #272722;
+    --policeTitre: 'Lobster';
+}
+
+*, *::before, *::after {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    margin:0 10px;
+    font-size: 100%;
+    /*    background-image: url("../img/16094740_img-20220919-wa0011.jpg");
+    background-repeat: repeat;
+   */}
+
+.logo {
+    background-color: transparent;
+    border:2px solid transparent;
+    width:3em;
+    padding:5px;
+}
+
+
+header {
+    /*background-color: var(--blanc);*/
+    /*    background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25) 1px, transparent 1px, transparent 6px);
+    background-size: 4px 4px;
+   */    
+
+    /*background-image: url("../img/16094740_img-20220919-wa0011.jpg");
+background-repeat:repeat;
+   */
+    background-image: repeating-linear-gradient(-45deg, rgba(25,255,255,0.15), rgba(255,255,255,0.15) 1px, transparent 1px, transparent 6px);
+    background-size: 4px 4px;
+}
+
+header h1 {
+    font-family: var(--policeTitre);
+    font-size:6rem;
+    letter-spacing: 2px;
+    background-color: var(--noir);
+    text-align:right;
+    border-radius:5px;
+    padding:5px;
+}
+
+header span.o {
+    color:var(--jaune);
+    /* border:3px solid var(--marron);*/
+}
+
+header span.nonO{
+    color:var(--marron);
+}
+
+header span.prenom{
+    color: var(--blanc);
+    transition: color 125ms ease-in-out;
+}
+
+header span.prenom:hover {
+    color: var(--jaune);
+}
+
+.titre {
+    width:100vw;
+    height:15vh;
+    object-fit: none;
+    border:3px solid transparent;
+    border-radius:5px solid transparent;    
+}
+
+
+header nav {
+    display:flex;
+}
+
+header nav ul {
+    /*    display:flex;
+    justify-content: space-between;
+   */ 
+    display:grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    font-family: sans-serif;
+
+}
+
+nav ul li {
+    list-style-type:none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 3px;
+}
+
+header nav a {
+    text-decoration: none;
+    padding: 3px;
+}
+
+/*main {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+}
+*/
+main  {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px;
+    /* 
+ background-image: url("../img/16094740_img-20220919-wa0011.jpg");
+ background-repeat: repeat;
+   */
+    background-image: repeating-linear-gradient(-45deg, rgba(25,255,255,0.15), rgba(255,255,255,0.15) 1px, transparent 1px, transparent 6px);
+    background-size: 4px 4px;
+
+}
+
+.photo {
+    max-width:100%;
+    max-height:100%;
+}
+
+.iconeTwitter, .iconeFacebook, .iconeInstagram, .iconeLinkedin {
+    width:2rem;
+    height:2rem;
+    
+}
+
+footer {
+    border:0;
+    border-top:2px solid var(--marron);
+}
+
+footer ul {
+    display:flex;
+    justify-content: space-end;
+    margin:0;
+    padding:0;
+}
+
+footer ul li {
+    list-style-type:none;
+}

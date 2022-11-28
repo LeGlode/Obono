@@ -1,0 +1,335 @@
+@import 'couleurs';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$jaune: #eec201;
+$marron: #b0401b;
+$blanc: $blanc16; //#ffffff;
+$noir: #272722;
+$couleurFond: #252839;
+$couleurFondHeader: $blanc10;
+
+$arrondiCadreTableau: 5px;
+$arrondiCartouche: 5px;
+$policeTitre: 'Poppins', sans-serif;
+$policeTexte: 'Poppins', sans-serif;
+$transition: all .125ms ease-out;
+$transition2: all .5ms ease-in-out;
+$tailleSvg: 4rem;
+$textShadow: 2px -1px 1px rgba(0,0,0,0.6);
+$boxShadow: 1px -1px 1px rgba(0,0,0, 0.75);
+$boxShadow2: -1px -1px 1px rgba(0,0,0, 0.5);
+
+$tailleBurger: 8rem;
+@mixin fx-row-between {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin fx-column-between {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin listeHorizontale($couleur: $jaune) {
+    display: flex;
+    flex-direction: row;
+    /* margin: 1rem; */
+    margin: 0 .2rem;
+    column-gap: .5rem;
+
+    font-family: $policeTexte;
+    font-size: 2rem;
+    font-weight: 500;
+
+    background-color: inherit;
+
+    li {
+	list-style-type: none;
+	margin: 0 .5rem;
+	border:2px solid transparent;
+	// transition: all .125s ease;
+	
+	a {
+	    text-decoration: none;
+	    color: $couleur;
+	    padding: .4rem;
+	    transition: all 125ms ease-out;
+	    &:hover {
+		border-bottom: $jaune;
+	    }
+
+	}
+    }
+}
+
+@mixin jm {
+    color: $jaune;
+    transition: $transition;
+    &:hover {
+	color: $marron;
+    }
+}
+
+@mixin mj {
+    color: $marron;
+    transition: $transition;
+    &:hover {
+	color: $jaune;
+    }
+}
+
+.burger, .twitter, .facebook, .instagram, .linkedin {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.burger {
+    background-image: url('../img/svg/burger.svg');
+    height: 4rem; //$tailleSvg;
+    width: 6rem; //$tailleSvg;
+}
+
+
+.twitter {
+    background-image: url('../img/svg/twitter.svg');
+    height: $tailleSvg;
+    width: $tailleSvg;
+}
+
+.facebook {
+    background-image: url('../img/svg/facebook.svg');
+    height: $tailleSvg;
+    width: $tailleSvg;
+}
+
+.instagram {
+    background-image: url('../img/svg/instagram.svg');
+    height: $tailleSvg;
+    width: $tailleSvg;
+}
+
+.linkedin {
+    background-image: url('../img/svg/linkedin.svg');
+    height: $tailleSvg;
+    width: $tailleSvg;
+}
+
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: $couleurFond;
+    // min-width: 480px;
+    // width: 100%;
+    width: 100vw;
+}
+
+main {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: 1fr auto;
+    gap: .5rem;
+    margin: 0 auto;
+    max-width: 98vw;
+    //max-width: 96vw;
+    // grid-auto-flow: row dense;
+}
+
+article {
+    //@include fx-column-between;
+    display: grid;
+    // gap: 1rem;
+    width: 100%;
+    
+    div {
+	width: 100%;
+	img {
+	    border-radius: $arrondiCadreTableau;
+	    //max-width: 100%;
+	    width: 100%;
+	    object-fit: contain;
+	}
+    }
+    dl {
+	@include fx-column-between;
+	color: $noir;
+	background-color: $blanc;
+	width: 100%;
+	height: fit-content;
+	border: 3px solid $noir;
+	border-radius: $arrondiCartouche;
+	// display:none;
+	dd.titre {
+	}
+
+	dd.annee {
+	}
+	
+	dd.support{
+	}
+	
+	dd.dimension{
+	}
+    }
+
+}
+
+footer, header {
+    height: 10rem;
+    width: 100%;
+    //background-color: $noir;
+}
+
+header {
+    
+    @include fx-row-between;
+
+    background-color: $couleurFondHeader;
+
+    // span.o, span.prenomP, span.prenomA { @include jm;}
+    // span.nonO, span.prenomU, span.prenomL { @include mj;}
+    span.o   { @include jm;}
+    span.nonO, span.prenomA, span.prenomU { @include mj;}
+
+    span.prenomP, span.prenomL { @include jm;}
+
+
+    h1#logoMobile, #logoDesktop {
+	font-size: 9rem;
+	margin-left: 1rem;
+	text-shadow: $textShadow;
+
+	transition: $transition2;
+	&:hover {
+	    letter-spacing: 3px;
+	}
+    }
+
+    #logoDesktop {
+	column-gap: 1rem;
+    }
+
+    h1#logoMobile {
+	display: block;
+    }
+
+    #logoDesktop {
+	display: none;
+    }
+
+    nav {
+	margin-right: 1rem;
+
+
+	
+	ul {
+	    @include listeHorizontale($jaune);
+	    display: none;
+	}
+
+	div.menu {
+	    height: $tailleBurger;
+	    width: $tailleBurger;
+	    padding: .4rem;
+	    margin: .4rem;
+	    @include fx-column-between;
+	    background-color: $marron;
+	    border: .2rem solid $jaune;
+	    border-radius: .5rem;
+	    cursor: pointer;
+	    
+	    div.trait {
+		height: 20%;
+		width: 100%;
+		background-color: $jaune;
+		border-radius: 3%;
+	    }
+	}
+
+    }
+
+
+}
+
+footer {
+    /* display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between; */
+    /* display: grid;
+       width: 100%; */
+    width: 100%;
+    @include fx-column-between;
+    
+    form {
+	/* width: 400px; */
+
+	display:flex;
+	flex-direction: column;
+	/* display: grid; */
+	color: saturate(invert($jaune, 25%));
+	background-color: invert($marron, 30%);
+	/* row-gap: 60px; */
+	div {
+	    @include fx-row-between;
+	}
+    }
+
+    ul {	
+	background-color: $blanc;
+	@include listeHorizontale($blanc);
+	width: 100%;
+	margin: 0;
+    }
+    
+}
+
+@media screen and (min-width: 767px){
+    body {
+	// min-width: 1280px;
+	width: 100vw;
+    }
+    header {
+	h1#logoMobile {
+	    display: none;
+	}
+	#logoDesktop {
+	    // display: block;
+	    display: flex;
+	    flex-wrap: wrap;
+	}
+
+	nav {
+	    div.menu {
+		display: none;
+	    }
+	    ul {
+		display: block;
+		@include listeHorizontale($jaune);
+	    }
+	}
+    }
+
+    main {
+	margin: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	gap: 1rem;
+	align-items: start;
+    }
+}
+
